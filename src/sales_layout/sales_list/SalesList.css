@@ -1,0 +1,116 @@
+/* src/sales_layout/sales_list/SalesList.css */
+
+.table-container {
+  margin: 20px 0;
+}
+
+.sales-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-list-table th, .sales-list-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.sales-list-table th {
+  background-color: #f4f4f4;
+}
+
+.sales-list-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.sales-list-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.sales-list-table button {
+  padding: 6px 12px;
+  margin: 2px;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.sales-list-table button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.view-modal-content {
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* View modal table styles */
+.view-details-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.view-details-table th, .view-details-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.view-details-table th {
+  background-color: #f4f4f4;
+}
+
+.view-details-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.view-details-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.add-record-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}

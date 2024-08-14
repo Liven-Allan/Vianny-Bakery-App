@@ -1,0 +1,79 @@
+/* src/production_layout/production_dashboard/ProductionDashboard.css */
+
+.dashboard {
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scrolling on the entire page */
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* Adjust font size as needed */
+    color: #333; /* Adjust text color for better visibility */
+}
+
+.chart-container {
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners for a modern look */
+    background-color: #fafafa; /* Lighter background for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.chart {
+    display: inline-block; /* Ensure the chart is treated as inline content */
+    width: 100%; /* Adjust to fit the container width */
+    max-width: 1200px; /* Set a maximum width for the chart */
+}
+
+.production-details-container,
+.raw-material-details-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    max-height: 500px; /* Adjust height as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.production-details-table,
+.raw-material-details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.production-details-table th,
+.production-details-table td,
+.raw-material-details-table th,
+.raw-material-details-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 0.9rem; /* Adjust font size for readability */
+}
+
+.production-details-table th,
+.raw-material-details-table th {
+    background-color: #eaeaea; /* Slightly darker background for table headers */
+    color: #333; /* Ensure text color contrasts well with background */
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    .chart-container, 
+    .production-details-container, 
+    .raw-material-details-container {
+        padding: 10px;
+    }
+
+    .production-details-table th, 
+    .production-details-table td, 
+    .raw-material-details-table th, 
+    .raw-material-details-table td {
+        font-size: 0.8rem;
+    }
+}

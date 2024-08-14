@@ -1,0 +1,80 @@
+/* src/layout/dashboard/Dashboard.css */
+
+.dashboard {
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scrolling on the entire page */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .chart {
+    display: inline-block; /* Ensure the chart is treated as inline content */
+    width: 100%; /* Adjust to fit the container width */
+    max-width: 1000px; /* Set a maximum width for the chart */
+  }
+  
+  .stock-levels-container {
+    max-height: 400px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Allow vertical scrolling within the container */
+    margin-top: 20px; /* Add margin top for spacing */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  
+  }
+  
+  .stock-levels-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .stock-levels-table th, .stock-levels-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .stock-levels-table th {
+    background-color: #f2f2f2;
+  }
+
+  .total-costs-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
+  }
+  
+  .total-costs-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .total-costs-table th,
+  .total-costs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .total-costs-table th {
+    background-color: #f4f4f4;
+  }
+  

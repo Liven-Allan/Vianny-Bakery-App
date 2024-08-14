@@ -1,0 +1,79 @@
+/* src/sales_layout/sales_list/AddEditSales.css */
+
+.modal-overlay {
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Make sure the overlay is on top */
+  }
+  
+  .form-container {
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh; /* Adjust to fit within the viewport */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative;
+    z-index: 1001; /* Ensure the form is above the overlay */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: left; /* Align the title to the left */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left; /* Align labels to the left */
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding does not affect width */
+  }
+  
+  .form-buttons {
+    margin-top: 20px;
+    text-align: right; /* Align buttons to the right */
+  }
+  
+  .form-buttons button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .form-buttons button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  button.cancel {
+    background-color: #e74c3c;
+  }
+  
+  button.cancel:hover {
+    background-color: #c0392b;
+  }
+  

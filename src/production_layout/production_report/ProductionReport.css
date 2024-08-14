@@ -1,0 +1,41 @@
+/* src/production_layout/production_report/ProductionReport.css */
+
+.production-report-container {
+  padding: 20px;
+}
+
+.date-button-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.date-button-table th,
+.date-button-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.date-button-table th {
+  background-color: #f4f4f4;
+}
+
+.export-button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.export-button:hover {
+  background-color: #003d7a;
+}
