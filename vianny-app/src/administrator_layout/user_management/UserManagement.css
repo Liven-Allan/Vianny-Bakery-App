@@ -1,0 +1,135 @@
+/* src/administrator_layout/user_management/UserManagement.css */ 
+
+.table-container {
+    margin: 20px 0;
+  }
+  
+  .user-management-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-management-table th, .user-management-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .user-management-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .user-management-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .user-management-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .user-management-table button {
+    padding: 6px 12px;
+    margin: 2px;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .user-management-table button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .form-container {
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow-y: auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-buttons {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .form-buttons button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .form-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  button.cancel {
+    background-color: #e74c3c;
+  }
+  
+  button.cancel:hover {
+    background-color: #c0392b;
+  }
+  

@@ -12,7 +12,15 @@ from .views import (InventoryItemListCreate,
                     SalesDetailView,
                     SalesStockTransactionsListCreateView,
                     SalesStockTransactionsDetailView,
-                    historical_data)
+                    historical_data,
+                    UserListCreate, 
+                    UserDetailView, 
+                    AuditLogListCreate, 
+                    AuditLogDetailView,
+                    UserProfileListCreate,
+                    UserProfileDetailView,
+                    CustomAuthToken
+                    )
 
 
 urlpatterns = [
@@ -28,5 +36,19 @@ urlpatterns = [
    path('sales/<int:pk>/', SalesDetailView.as_view(), name='sales-detail'),
    path('salesstocktransactions/', SalesStockTransactionsListCreateView.as_view(), name='salesstocktransactions-list-create'),
    path('salesstocktransactions/<int:pk>/', SalesStockTransactionsDetailView.as_view(), name='salesstocktransactions-detail'),
+   # User Management
+   path('users/', UserListCreate.as_view(), name='user-list-create'),
+   path('users/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
+
+   # User profile
+   path('user-profiles/', UserProfileListCreate.as_view(), name='userprofile-list-create'),
+   path('user-profiles/<int:pk>/', UserProfileDetailView.as_view(), name='userprofile-detail'),
+
+    # Audit Logs
+   path('auditlogs/', AuditLogListCreate.as_view(), name='auditlog-list-create'),
+   path('auditlogs/<int:pk>/', AuditLogDetailView.as_view(), name='auditlog-detail'),
+
+   # Token
+   path('api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
 
 ]
