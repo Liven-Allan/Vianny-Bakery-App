@@ -65,6 +65,7 @@ const EditInventoryModal = ({ isOpen, onRequestClose, selectedItem, onSave, user
               name="name"
               value={formData.name || ''}
               onChange={handleChange}
+              readOnly
             />
           </label>
           <label>
@@ -74,6 +75,7 @@ const EditInventoryModal = ({ isOpen, onRequestClose, selectedItem, onSave, user
               name="category"
               value={formData.category || ''}
               onChange={handleChange}
+              readOnly
             />
           </label>
           <label>

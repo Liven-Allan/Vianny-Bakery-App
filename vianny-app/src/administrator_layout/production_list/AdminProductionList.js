@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AddEditProductionForm from '../../productionModal/AddEditProductionForm';
 import './ProductionList.css';
 
 const API_URL_PRODUCTIONS = 'http://localhost:8000/api/productions/';
 const API_URL_INVENTORY = 'http://localhost:8000/api/inventory/';
 
-const ProductionList = ({ loggedInUsername }) => {
+const AdminProductionList = ({ isAdmin }) => {
   const [productions, setProductions] = useState([]);
   const [inventoryItems, setInventoryItems] = useState([]);
   const [editingProduction, setEditingProduction] = useState(null);
@@ -18,7 +17,7 @@ const ProductionList = ({ loggedInUsername }) => {
 
   const fetchProductions = async () => {
     try {
-      const response = await axios.get(`${API_URL_PRODUCTIONS}?username=${loggedInUsername}`);
+      const response = await axios.get(API_URL_PRODUCTIONS);
       console.log('Fetched productions:', response.data);
 
       const sortedProductions = response.data.sort((a, b) => new Date(b.productionDate) - new Date(a.productionDate));
@@ -137,17 +136,7 @@ const ProductionList = ({ loggedInUsername }) => {
   return (
     <div className="production-list-container">
       <h2>Production List</h2>
-      <button className="add-production-button" onClick={handleAddClick}>
-        Add New Production Record
-      </button>
-      {showForm && (
-        <AddEditProductionForm
-          production={editingProduction}
-          onSave={handleSave}
-          onCancel={handleCancel}
-          loggedInUsername={loggedInUsername}
-        />
-      )}
+      
       <table>
         <thead>
           <tr>
@@ -185,10 +174,7 @@ const ProductionList = ({ loggedInUsername }) => {
                 <button onClick={() => handleViewClick(record)} disabled={!record.quantityProduced || !record.unit_price}>
                   View
                 </button>
-                <button onClick={() => handleEditClick(record)} disabled={record.quantityProduced && record.unit_price}>
-                  Edit
-                </button>
-                {/*<button onClick={() => handleDelete(record.id)}>Delete</button>*/}
+                <button onClick={() => handleDelete(record.id)}>Delete</button>
               </td>
             </tr>
           ))}
@@ -199,4 +185,4 @@ const ProductionList = ({ loggedInUsername }) => {
   );
 };
 
-export default ProductionList;
+export default AdminProductionList;

@@ -1,3 +1,4 @@
+
 """
 Django settings for bakery_project project.
 
@@ -100,6 +101,15 @@ DATABASES = {
 }
 """
 
+"""
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost:5432/vianny',
+        conn_max_age=600
+    )
+}
+"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -110,6 +120,8 @@ DATABASES = {
         'PORT': '5432',       # Default port for PostgreSQL
     }
 }
+
+
 
 
 

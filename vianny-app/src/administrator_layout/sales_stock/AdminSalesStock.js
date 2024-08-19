@@ -5,7 +5,7 @@ import axios from 'axios';
 import './SalesStock.css';
 import AddEditStock from './AddEditStock';
 
-const SalesStock = ({ loggedInUsername }) => {
+const AdminSalesStock = () => {
   const [stocks, setStocks] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false); // New state for view modal
@@ -15,7 +15,7 @@ const SalesStock = ({ loggedInUsername }) => {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/salestocks?username=${loggedInUsername}`);
+        const response = await axios.get('http://localhost:8000/api/salestocks');
         // Sort stocks by stock_date in descending order
         const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
         setStocks(sortedStocks);
@@ -60,17 +60,7 @@ const SalesStock = ({ loggedInUsername }) => {
   return (
     <div>
       <h2>Sales Stock</h2>
-      <div className="button-container">
-        <button className="add-record-button" onClick={() => setShowModal(true)}>Add Stock Record</button>
-      </div>
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="close-button" onClick={handleCloseModal}>X</button>
-            <AddEditStock stock={currentStock} onSave={handleCloseModal} onCancel={handleCloseModal} loggedInUsername={loggedInUsername}/>
-          </div>
-        </div>
-      )}
+    
       {showViewModal && (
         <div className="modal-overlay">
           <div className="modal-content view-modal-content">
@@ -104,6 +94,7 @@ const SalesStock = ({ loggedInUsername }) => {
             <tr>
               <th>Product Name</th>
               <th>Qty Obtained</th>
+              <th>Recorded By</th>
               <th>Unit Price</th>
               <th>Actions</th>
             </tr>
@@ -114,9 +105,10 @@ const SalesStock = ({ loggedInUsername }) => {
                 <td>{stock.product_id}</td>
                 <td>{stock.quantity_obtained}</td>
                 <td>{stock.stock_amount}</td>
+                <td>{stock.username}</td>
                 <td>
-                  <button onClick={() => handleEdit(stock)}>Update</button>
-                  <button onClick={() => handleView(stock)}>View</button>
+                 <button onClick={() => handleView(stock)}>View</button>
+                  <button onClick={() => handleDelete(stock.id)}>Delete</button>
                 </td>
               </tr>
             ))}
@@ -127,4 +119,4 @@ const SalesStock = ({ loggedInUsername }) => {
   );
 };
 
-export default SalesStock;
+export default AdminSalesStock;

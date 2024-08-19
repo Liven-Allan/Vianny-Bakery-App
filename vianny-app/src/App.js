@@ -30,6 +30,8 @@ import AdminSalesDashboard from './administrator_layout/sales_dashboard/AdminSal
 import AdminInventoryReport from './administrator_layout/inventory_report/AdminInventoryReport';
 import AdminProductionReport from './administrator_layout/production_report/AdminProductionReport';
 import AdminSalesReport from './administrator_layout/sales_report/AdminSalesReport';
+import AdminProductionList from './administrator_layout/production_list/AdminProductionList';
+import AdminSalesStock from './administrator_layout/sales_stock/AdminSalesStock';
 import Login from './login/Login'; // Import the Login component
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
           <Route path="admin-inventory-report" element={<AdminInventoryReport />} />
           <Route path="admin-production-report" element={<AdminProductionReport />} />
           <Route path="admin-sales-report" element={<AdminSalesReport />} />
+          <Route path="admin-production-list" element={<AdminProductionList />} />
+          <Route path="admin-stock-list" element={<AdminSalesStock />} />
         </Route>
 
         {/* Inventory Management Routes - Protected */}

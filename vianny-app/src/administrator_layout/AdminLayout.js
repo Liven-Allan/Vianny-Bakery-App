@@ -18,6 +18,8 @@ const AdminLayout = () => {
             <li><Link to="/admin-inventory-report">Inventory Report</Link></li>
             <li><Link to="/admin-production-report">Production Report</Link></li>
             <li><Link to="/admin-sales-report">Sales Report</Link></li>
+            <li><Link to="/admin-production-list">Production List</Link></li>
+            <li><Link to="/admin-stock-list">Sales Stock List</Link></li>
           </ul>
         </nav>
       </aside>
