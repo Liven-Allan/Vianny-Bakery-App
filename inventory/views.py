@@ -10,6 +10,8 @@ from rest_framework.permissions import AllowAny
 from django.db import transaction, IntegrityError
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
+from django.shortcuts import render
+from django.http import HttpResponse
 from .models import (InventoryItem, 
                      InventoryTransaction, 
                      ProductionRecord, 
@@ -266,3 +268,7 @@ class CustomAuthToken(APIView):
             return Response({'token': token.key})
         except User.DoesNotExist:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+# view render
+def index(request):
+    return render(request, 'index.html')

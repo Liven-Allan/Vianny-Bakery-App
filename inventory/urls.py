@@ -19,7 +19,8 @@ from .views import (InventoryItemListCreate,
                     AuditLogDetailView,
                     UserProfileListCreate,
                     UserProfileDetailView,
-                    CustomAuthToken
+                    CustomAuthToken,
+                    index
                     )
 
 
@@ -50,5 +51,8 @@ urlpatterns = [
 
    # Token
    path('api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),
+   
+   # render view
+   
 
 ]
