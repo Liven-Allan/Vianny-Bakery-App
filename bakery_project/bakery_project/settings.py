@@ -1,4 +1,6 @@
-
+import os;
+import dj_database_url;
+from pathlib import Path
 """
 Django settings for bakery_project project.
 
@@ -14,7 +16,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# Print the actual value of BASE_DIR
+print(f"BASE_DIR is: {BASE_DIR}")
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,9 +29,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&8vb_(dhl9de3g%td@k7cu=lbfsf!mn4*a#^4@ylr5!t)=0lcn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
+
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -70,10 +77,11 @@ CORS_ALLOWED_ORIGINS = [
 
 ROOT_URLCONF = 'bakery_project.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR , 'vianny-app', 'build')],  # Add this line
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,15 +109,16 @@ DATABASES = {
 }
 """
 
-"""
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/vianny',
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
 }
-"""
+# postgresql://postgres:postgres@localhost:5432/vianny
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -120,6 +129,8 @@ DATABASES = {
         'PORT': '5432',       # Default port for PostgreSQL
     }
 }
+
+"""
 
 
 
@@ -160,9 +171,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'bakery_project' ,'staticfiles')
+
+STATIC_URL = '/static/'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# settings.py
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'vianny-app', 'build', 'static'),
+]
+

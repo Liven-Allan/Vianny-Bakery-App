@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/liven/Desktop/VB_Project/bakery_project/myenv"
+set -gx VIRTUAL_ENV "/home/liven/Desktop/VB_Project/Vianny-Bakery-App/bakery_project/myenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/liven/Desktop/VB_Project/bakery_project/myenv"
+VIRTUAL_ENV="/home/liven/Desktop/VB_Project/Vianny-Bakery-App/bakery_project/myenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
