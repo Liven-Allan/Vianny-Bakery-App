@@ -114,7 +114,7 @@ class UserProfile(models.Model):
 def create_default_user(sender, **kwargs):
     if not User.objects.filter(username='Allan').exists():
         user = User.objects.create_user(
-            id=1,
+            id=2,
             username='Allan',
             first_name='Lutalo',
             last_name='Allan',
