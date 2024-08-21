@@ -1,5 +1,4 @@
 # inventory/views.py
-
 from rest_framework import generics
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
@@ -271,4 +270,5 @@ class CustomAuthToken(APIView):
 
 # view render
 def index(request):
-    return render(request, 'index.html')
+     return render(request, 'index.html')
+
