@@ -112,10 +112,10 @@ class UserProfile(models.Model):
 # Signal to add a default user and user profile after migration
 @receiver(post_migrate)
 def create_default_user(sender, **kwargs):
-    if not User.objects.filter(username='Gold').exists():
+    if not User.objects.filter(username='You').exists():
         user = User.objects.create_user(
-            id=5,
-            username='Gold',
+            id=8,
+            username='You',
             first_name='Andrew',
             last_name='Klein',
             email='lutaloallan6@gmail.com',
