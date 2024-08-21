@@ -15,7 +15,7 @@ const SalesStock = ({ loggedInUsername }) => {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/salestocks?username=${loggedInUsername}`);
+        const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks?username=${loggedInUsername}`);
         // Sort stocks by stock_date in descending order
         const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
         setStocks(sortedStocks);
@@ -40,7 +40,7 @@ const SalesStock = ({ loggedInUsername }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/salestocks/${id}/`);
+      await axios.delete(`https://vianny-bakery-app.onrender.com/api/salestocks/${id}/`);
       setRefresh(prev => !prev);
     } catch (error) {
       console.error('Error deleting stock:', error);

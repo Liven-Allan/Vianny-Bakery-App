@@ -41,11 +41,11 @@ const SalesReport = () => {
     const fetchData = async () => {
       try {
         // Fetch sales data
-        const salesResponse = await axios.get('http://127.0.0.1:8000/api/sales/');
+        const salesResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/sales/');
         const salesData = salesResponse.data;
 
         // Fetch stock transaction data
-        const stockResponse = await axios.get('http://127.0.0.1:8000/api/salesstocktransactions/');
+        const stockResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/salesstocktransactions/');
         const stockData = stockResponse.data;
 
         // Extract unique dates from sales and stock data

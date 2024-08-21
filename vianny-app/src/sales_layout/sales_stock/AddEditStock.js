@@ -50,7 +50,7 @@ const AddEditStock = ({ stock, onSave, onCancel, loggedInUsername }) => {
     };
 
     const requestMethod = stock ? axios.put : axios.post;
-    const url = stock ? `http://localhost:8000/api/salestocks/${stock.id}/` : 'http://localhost:8000/api/salestocks/';
+    const url = stock ? `https://vianny-bakery-app.onrender.com/api/salestocks/${stock.id}/` : 'https://vianny-bakery-app.onrender.com/api/salestocks/';
 
     requestMethod(url, stockData)
       .then(response => {

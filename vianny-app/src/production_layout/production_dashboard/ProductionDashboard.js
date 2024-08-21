@@ -41,11 +41,11 @@ const ProductionDashboard = () => {
     const fetchData = async () => {
       try {
         // Fetch production data
-        const productionResponse = await axios.get('http://localhost:8000/api/productions/');
+        const productionResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/productions/');
         const productionData = productionResponse.data;
 
         // Fetch inventory data
-        const inventoryResponse = await axios.get('http://localhost:8000/api/inventory/');
+        const inventoryResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/inventory/');
         const inventoryData = inventoryResponse.data.reduce((acc, item) => {
           acc[item.id] = item;
           return acc;

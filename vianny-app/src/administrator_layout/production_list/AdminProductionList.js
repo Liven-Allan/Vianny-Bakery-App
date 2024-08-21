@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ProductionList.css';
 
-const API_URL_PRODUCTIONS = 'http://localhost:8000/api/productions/';
-const API_URL_INVENTORY = 'http://localhost:8000/api/inventory/';
+const API_URL_PRODUCTIONS = 'https://vianny-bakery-app.onrender.com/api/productions/';
+const API_URL_INVENTORY = 'https://vianny-bakery-app.onrender.com/api/inventory/';
 
 const AdminProductionList = ({ isAdmin }) => {
   const [productions, setProductions] = useState([]);

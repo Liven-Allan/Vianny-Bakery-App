@@ -16,7 +16,7 @@ const UserManagement = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/users/');
+        const response = await axios.get('https://vianny-bakery-app.onrender.com/api/users/');
         setUsers(response.data);
         setLoading(false);
       } catch (error) {
@@ -41,7 +41,7 @@ const UserManagement = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/users/${userId}/`);
+      await axios.delete(`https://vianny-bakery-app.onrender.com/api/users/${userId}/`);
       setRefresh(prev => !prev);
     } catch (error) {
       console.error('Error deleting user:', error);

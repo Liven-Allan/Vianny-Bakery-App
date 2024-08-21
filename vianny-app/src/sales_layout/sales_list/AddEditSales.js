@@ -17,7 +17,7 @@ const AddEditSales = ({ onSave, onCancel, loggedInUsername }) => {
     // Fetch products from SaleStocks API
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/salestocks/?username=${loggedInUsername}`);
+        const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks/?username=${loggedInUsername}`);
         setStock(response.data);
         setProducts(response.data.map(stockItem => stockItem.product_id));
       } catch (error) {
@@ -71,7 +71,7 @@ const AddEditSales = ({ onSave, onCancel, loggedInUsername }) => {
           quantity_obtained: stockItem.quantity_obtained - quantitySold
         };
 
-        await axios.put(`http://localhost:8000/api/salestocks/${stockItem.id}/`, updatedStockItem);
+        await axios.put(`https://vianny-bakery-app.onrender.com/api/salestocks/${stockItem.id}/`, updatedStockItem);
       }
     } catch (error) {
       console.error('Error updating stock quantities:', error);
@@ -88,7 +88,7 @@ const AddEditSales = ({ onSave, onCancel, loggedInUsername }) => {
       };
 
       // Send POST request to create a new sale
-      const response = await axios.post('http://localhost:8000/api/sales/', saleData);
+      const response = await axios.post('https://vianny-bakery-app.onrender.com/api/sales/', saleData);
 
       // Update stock quantities after sale is saved
       await updateStockQuantities();

@@ -15,11 +15,11 @@ const AdminInventoryDashboard = () => {
     const fetchData = async () => {
       try {
         // Fetch transactions data
-        const transactionsResponse = await axios.get('http://localhost:8000/api/transactions/');
+        const transactionsResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/transactions/');
         const transactionsData = transactionsResponse.data;
 
         // Fetch inventory data
-        const inventoryResponse = await axios.get('http://localhost:8000/api/inventory/');
+        const inventoryResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/inventory/');
         const inventoryData = inventoryResponse.data;
 
         // Create a mapping of product IDs to product names

@@ -15,7 +15,7 @@ const AddEditProductionForm = ({ production, onSave, onCancel, loggedInUsername 
   const isEditMode = !!production;
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/inventory/')
+    axios.get('https://vianny-bakery-app.onrender.com/api/inventory/')
       .then(response => {
         const options = response.data.map(item => ({
           value: item.id,
@@ -82,7 +82,7 @@ const AddEditProductionForm = ({ production, onSave, onCancel, loggedInUsername 
     };
   
     const requestMethod = isEditMode ? axios.put : axios.post;
-    const url = isEditMode ? `http://localhost:8000/api/productions/${production.id}/` : 'http://localhost:8000/api/productions/';
+    const url = isEditMode ? `https://vianny-bakery-app.onrender.com/api/productions/${production.id}/` : 'https://vianny-bakery-app.onrender.com/api/productions/';
   
     requestMethod(url, productionData)
       .then(response => {

@@ -33,14 +33,14 @@ const AdminSalesDashboard = () => {
     const fetchData = async () => {
       try {
         // Fetch sales data
-        const salesResponse = await axios.get('http://127.0.0.1:8000/api/sales/');
+        const salesResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/sales/');
         const sales = salesResponse.data;
         
         // Log fetched sales data
         console.log('Fetched sales data:', sales);
 
         // Fetch transactions data
-        const transactionResponse = await axios.get('http://127.0.0.1:8000/api/salesstocktransactions/');
+        const transactionResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/salesstocktransactions/');
         const transactions = transactionResponse.data;
 
         // Log fetched transactions data

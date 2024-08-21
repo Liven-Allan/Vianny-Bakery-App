@@ -15,7 +15,7 @@ const SalesList = ({ loggedInUsername }) => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/sales?username=${loggedInUsername}`);
+        const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/sales?username=${loggedInUsername}`);
         
         // Sort sales by sales_date in descending order
         const sortedSales = response.data.sort((a, b) => new Date(b.sales_date) - new Date(a.sales_date));
@@ -41,21 +41,21 @@ const SalesList = ({ loggedInUsername }) => {
       const { branch_id, product_id, quantity_sold } = sale;
       
       // 1. Fetch the sale details
-      const stockResponse = await axios.get(`http://localhost:8000/api/salestocks/?branch_id=${branch_id}`);
+      const stockResponse = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks/?branch_id=${branch_id}`);
       const branchStock = stockResponse.data.find(stock => stock.product_id === product_id);
   
       if (branchStock) {
         // Increment the quantity_obtained by the quantity_sold
         const updatedQuantity = branchStock.quantity_obtained + quantity_sold;
   
-        await axios.put(`http://localhost:8000/api/salestocks/${branchStock.id}/`, {
+        await axios.put(`https://vianny-bakery-app.onrender.com/api/salestocks/${branchStock.id}/`, {
           ...branchStock,
           quantity_obtained: updatedQuantity
         });
       }
   
       // 2. Delete the sale record
-      await axios.delete(`http://localhost:8000/api/sales/${sale.id}/`);
+      await axios.delete(`https://vianny-bakery-app.onrender.com/api/sales/${sale.id}/`);
       setRefresh(prev => !prev);
     } catch (error) {
       console.error('Error deleting sale:', error);

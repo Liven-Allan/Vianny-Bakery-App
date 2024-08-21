@@ -21,7 +21,7 @@ const UserForm = ({ userId, onClose }) => {
   // Fetch user details if editing
   useEffect(() => {
     if (userId) {
-      axios.get(`http://localhost:8000/api/users/${userId}/`)
+      axios.get(`https://vianny-bakery-app.onrender.com/api/users/${userId}/`)
         .then(response => {
           const userData = response.data;
           setUser({
@@ -65,9 +65,9 @@ const UserForm = ({ userId, onClose }) => {
       };
 
       if (isEditing) {
-        await axios.put(`http://localhost:8000/api/users/${userId}/`, userData);
+        await axios.put(`https://vianny-bakery-app.onrender.com/api/users/${userId}/`, userData);
       } else {
-        await axios.post('http://localhost:8000/api/users/', userData);
+        await axios.post('https://vianny-bakery-app.onrender.com/api/users/', userData);
       }
       onClose();
     } catch (error) {

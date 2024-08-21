@@ -12,7 +12,7 @@ const InventoryReport = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/historical-data/');
+        const response = await axios.get('https://vianny-bakery-app.onrender.com/api/historical-data/');
         const fetchedData = response.data;
 
         // Ensure that the date field includes time information if available
