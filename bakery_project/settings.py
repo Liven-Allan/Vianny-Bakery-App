@@ -82,7 +82,7 @@ ROOT_URLCONF = 'bakery_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR , 'templates')],  # Add this line
+        'DIRS': [os.path.join(BASE_DIR ,'inventory', 'templates')],  # Add this line
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -188,6 +188,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'vianny-app', 'build', 'static'),
+    os.path.join(BASE_DIR, 'inventory', 'templates', 'static'),
 ]
 
