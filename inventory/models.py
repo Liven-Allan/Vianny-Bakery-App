@@ -90,8 +90,20 @@ class SalesStockTransactions(models.Model):
 # Administration Management
 # User profile model
 class UserProfile(models.Model):
+    ADMIN = 'admin'
+    SALES_REP = 'sales_representative'
+    PRODUCTION_REP = 'production_representative'
+    INVENTORY_REP = 'inventory_representative'
+
+    ROLE_CHOICES = [
+        (ADMIN, 'Admin'),
+        (SALES_REP, 'Sales Representative'),
+        (PRODUCTION_REP, 'Production Representative'),
+        (INVENTORY_REP, 'Inventory Representative'),
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=255, null=True, default='user')
+    role = models.CharField(max_length=255, choices=ROLE_CHOICES, default=ADMIN)
     status = models.CharField(max_length=255, null=True, default='active')
 
     def __str__(self):
@@ -110,16 +122,16 @@ def create_default_user(sender, **kwargs):
         )
         UserProfile.objects.create(
             user=user,
-            role='admin',
+            role=UserProfile.ADMIN,
             status='active'
         )
-    
+
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     else:
-        instance.userprofile.save()    
+        instance.userprofile.save()  
 
 # Audit Log model
 class AuditLog(models.Model):
