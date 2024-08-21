@@ -15,6 +15,7 @@ const Login = ({ setIsAuthenticated, setUserRole, setLoggedInUsername }) => {
     e.preventDefault();
     try {
       const response = await axios.get('https://vianny-bakery-app.onrender.com/api/users/');
+
         const users = response.data;
 
         const user = users.find(
