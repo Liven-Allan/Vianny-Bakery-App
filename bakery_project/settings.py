@@ -72,7 +72,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # React development server
+    "http://localhost:3000","https://vianny-bakery-app.onrender.com",  # React development server
 ]
 
 ROOT_URLCONF = 'bakery_project.urls'
