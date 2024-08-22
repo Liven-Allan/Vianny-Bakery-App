@@ -110,21 +110,24 @@ DATABASES = {
 }
 """
 
+"""
 DATABASES = {
     'default': dj_database_url.config(
         default="postgresql://liven:CumiMDvBudnkO3tOQJCY7LqqNoSYyBnK@dpg-cr28kmbqf0us739otad0-a/viannybakery",
         conn_max_age=600
     )
 }
-
 """
+
+
+
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
 }
-"""
+
 
 # postgresql://postgres:postgres@localhost:5432/vianny
 
