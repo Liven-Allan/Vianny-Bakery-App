@@ -69,9 +69,9 @@ const Login = ({ setIsAuthenticated, setUserRole, setLoggedInUsername }) => {
           />
         </div>
         <div className="login-form-group">
-          <label>Email:</label>
+          <label>Password:</label>
           <input
-            type="email"
+            type="password"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
