@@ -1,18 +1,27 @@
 /* src/administrator_layout/AdminLayout.js */ 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import './AdminLayout.css'; // Import the CSS file for styling
 
 const AdminLayout = ({ handleLogout }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const navigate = useNavigate();
 
   const handleLogoutClick = () => {
     handleLogout(); // Call the logout function
     navigate('/'); // Redirect to the login page
   };
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  }; 
+
   return (
-    <div className="layout">
+    <div className={`layout ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <button className="toggle-sidebar" onClick={toggleSidebar}>
+        ☰
+      </button>
       <aside className="sidebar">
         <h1>Admin Management</h1>
         <nav>
