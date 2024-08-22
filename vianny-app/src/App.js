@@ -39,6 +39,12 @@ function App() {
   const [userRole, setUserRole] = useState(''); // State to track user role
   const [loggedInUsername, setLoggedInUsername] = useState(''); // State to track logged-in username
 
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setUserRole('');
+    setLoggedInUsername('');
+  };
+
   return (
     <Router>
       <Routes>
@@ -46,7 +52,7 @@ function App() {
         <Route path="/" element={isAuthenticated ? <Navigate to={`/${userRole}-dashboard`} /> : <Login setIsAuthenticated={setIsAuthenticated} setUserRole={setUserRole} setLoggedInUsername={setLoggedInUsername} />} />
         
         {/* Admin Routes - Protected */}
-        <Route path="/" element={isAuthenticated && userRole === 'admin' ? <AdminLayout /> : <Navigate to="/" />}>
+        <Route path="/" element={isAuthenticated && userRole === 'admin' ? <AdminLayout handleLogout={handleLogout} /> : <Navigate to="/" />}>
           <Route path="user-management" element={<UserManagement />} />
           <Route path="admin-inventory-dashboard" element={<AdminInventoryDashboard />} />
           <Route path="admin-production-dashboard" element={<AdminProductionDashboard />} />
@@ -59,14 +65,14 @@ function App() {
         </Route>
 
         {/* Inventory Management Routes - Protected */}
-        <Route path="/" element={isAuthenticated && userRole === 'inventory_representative' ? <Layout /> : <Navigate to="/" />}>
+        <Route path="/" element={isAuthenticated && userRole === 'inventory_representative' ? <Layout handleLogout={handleLogout} /> : <Navigate to="/" />}>
         {/* <Route path="inventory-dashboard" element={<Dashboard />} /> */}
           <Route path="inventory-list" element={<InventoryList loggedInUsername={loggedInUsername} />} />
         {/*  <Route path="inventory-report" element={<InventoryReport />} /> */}
         </Route>
 
         {/* Sales Management Routes - Protected */}
-        <Route path="/" element={isAuthenticated && userRole === 'sales_representative' ? <SalesLayout /> : <Navigate to="/" />}>
+        <Route path="/" element={isAuthenticated && userRole === 'sales_representative' ? <SalesLayout handleLogout={handleLogout} /> : <Navigate to="/" />}>
          {/*  <Route path="sales-dashboard" element={<SalesDashboard />} /> */}
           <Route path="sales-stock" element={<SalesStock loggedInUsername={loggedInUsername} />} />
           <Route path="sales-list" element={<SalesList loggedInUsername={loggedInUsername} />} />
@@ -74,7 +80,7 @@ function App() {
         </Route>
 
         {/* Production Management Routes - Protected */}
-        <Route path="/" element={isAuthenticated && userRole === 'production_representative' ? <ProductionLayout /> : <Navigate to="/" />}>
+        <Route path="/" element={isAuthenticated && userRole === 'production_representative' ? <ProductionLayout handleLogout={handleLogout} /> : <Navigate to="/" />}>
          {/* <Route path="production-dashboard" element={<ProductionDashboard />} /> */}
           <Route path="production-list" element={<ProductionList loggedInUsername={loggedInUsername} />} />
          {/* <Route path="production-report" element={<ProductionReport />} /> */}

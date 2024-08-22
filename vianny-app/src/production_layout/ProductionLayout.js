@@ -1,10 +1,17 @@
 /* src/production_layout/ProductionLayout.js */
 
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import './ProductionLayout.css'; // Import the CSS file for styling
 
-const ProductionLayout = () => {
+const ProductionLayout = ({ handleLogout }) => {
+  const navigate = useNavigate();
+
+  const handleLogoutClick = () => {
+    handleLogout(); // Call the logout function
+    navigate('/'); // Redirect to the login page
+  };
+
   return (
     <div className="layout">
       <aside className="sidebar">
@@ -16,6 +23,9 @@ const ProductionLayout = () => {
             {/* <li><Link to="/production-report">Production Report</Link></li> */}
           </ul>
         </nav>
+        <button onClick={handleLogoutClick} className="logout-button">
+          Logout
+        </button>
       </aside>
       <main className="content">
         <Outlet /> {/* This will render the child routes/components */}
