@@ -90,48 +90,20 @@ class SalesStockTransactions(models.Model):
 # Administration Management
 # User profile model
 class UserProfile(models.Model):
-    ADMIN = 'admin'
-    SALES_REP = 'sales_representative'
-    PRODUCTION_REP = 'production_representative'
-    INVENTORY_REP = 'inventory_representative'
-
-    ROLE_CHOICES = [
-        (ADMIN, 'Admin'),
-        (SALES_REP, 'Sales Representative'),
-        (PRODUCTION_REP, 'Production Representative'),
-        (INVENTORY_REP, 'Inventory Representative'),
-    ]
-
+   
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=255, choices=ROLE_CHOICES, default=ADMIN)
-    status = models.CharField(max_length=255, null=True, default='active')
+    role = models.CharField(max_length=255, null=True)
+    status = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return self.user.username
-
-# Signal to add a default user and user profile after migration
-@receiver(post_migrate)
-def create_default_user(sender, **kwargs):
-    if not User.objects.filter(username='Patrick').exists():
-        user = User.objects.create_user(
-            id=8,
-            username='Patrick',
-            first_name='Morgan',
-            last_name='Polt',
-            email='lutaloallan6@gmail.com',
-        )
-        UserProfile.objects.create(
-            user=user,
-            role=UserProfile.ADMIN,
-            status='active'
-        )
-
+    
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     else:
-        instance.userprofile.save()  
+        instance.userprofile.save() 
 
 # Audit Log model
 class AuditLog(models.Model):
