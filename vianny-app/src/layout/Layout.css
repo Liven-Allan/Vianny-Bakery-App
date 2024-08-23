@@ -19,6 +19,12 @@
   height: 100vh; /* Ensure sidebar covers full height */
   overflow-y: auto; /* Allow sidebar to scroll if needed */
   transition: transform 0.3s ease;
+  background-image: url('../images/stock.jpg');
+    /* Add the background image */
+    background-size: cover;
+    /* Cover the entire sidebar */
+    background-position: center;
+    /* Center the image */
 }
 
 .sidebar-closed .sidebar {

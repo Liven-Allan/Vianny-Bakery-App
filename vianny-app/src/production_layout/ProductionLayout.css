@@ -17,6 +17,12 @@
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    background-image: url('../images/production.jpg');
+      /* Add the background image */
+      background-size: cover;
+      /* Cover the entire sidebar */
+      background-position: center;
+      /* Center the image */
   }
 
         .sidebar-closed .sidebar {
