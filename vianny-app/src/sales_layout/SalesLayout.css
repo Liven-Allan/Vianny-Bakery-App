@@ -16,7 +16,16 @@
     color: white;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
+    transition: transform 0.3s ease;
+    }
+    
+    .sidebar-closed .sidebar {
+      transform: translateX(-100%);
+    }
+    
+    .sidebar-open .sidebar {
+      transform: translateX(0);
+}
   
   .sidebar h1 {
     font-size: 24px;

@@ -18,8 +18,16 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   height: 100vh; /* Ensure sidebar covers full height */
   overflow-y: auto; /* Allow sidebar to scroll if needed */
+  transition: transform 0.3s ease;
 }
 
+.sidebar-closed .sidebar {
+  transform: translateX(-100%);
+}
+
+.sidebar-open .sidebar {
+  transform: translateX(0);
+}
 .sidebar h1 {
   font-size: 24px;
   margin-bottom: 20px;
