@@ -15,19 +15,28 @@ const SalesList = ({ loggedInUsername }) => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/sales?username=${loggedInUsername}`);
-        
-        // Sort sales by sales_date in descending order
-        const sortedSales = response.data.sort((a, b) => new Date(b.sales_date) - new Date(a.sales_date));
-        
-        setSales(sortedSales);
-      } catch (error) {
-        console.error('Error fetching sales:', error);
-      }
+          // Fetch all sales records
+          const response = await axios.get('https://vianny-bakery-app.onrender.com/api/sales/');
+          const salesData = response.data;
+
+          // Filter sales based on the logged-in username
+          const filteredSales = salesData.filter(sale => sale.username === loggedInUsername);
+
+          // Sort filtered sales by sales_date in descending order
+          const sortedSales = filteredSales.sort((a, b) => new Date(b.sales_date) - new Date(a.sales_date));
+
+          // Set the sorted and filtered sales
+          setSales(sortedSales);
+
+          console.log('Data returned from backend:', sortedSales);
+        } catch (error) {
+          console.error('Error fetching sales:', error);
+        }
     };
 
     fetchSales();
-  }, [refresh]);
+  }, [refresh, loggedInUsername]);
+
 
   const handleCloseModal = () => {
     setShowModal(false);
