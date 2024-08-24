@@ -94,8 +94,8 @@ const AdminSalesStock = () => {
             <tr>
               <th>Product Name</th>
               <th>Qty Obtained</th>
-              <th>Recorded By</th>
               <th>Unit Price</th>
+              <th>Recorded By</th>
               <th>Actions</th>
             </tr>
           </thead>
