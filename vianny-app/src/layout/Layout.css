@@ -13,7 +13,7 @@
   top: 0; /* Stick to the top of the container */
   width: 250px;
   background-color: white;
-    color: purple;
+    color: orangered;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   height: 100vh; /* Ensure sidebar covers full height */
@@ -37,6 +37,7 @@
 .sidebar h1 {
   font-size: 24px;
   margin-bottom: 20px;
+  padding-top: 20px;
 }
 
 .sidebar nav ul {
@@ -49,7 +50,7 @@
 }
 
 .sidebar nav ul li a {
-  color: purple;
+  color: orangered;
   text-decoration: none;
   font-size: 18px;
 }
