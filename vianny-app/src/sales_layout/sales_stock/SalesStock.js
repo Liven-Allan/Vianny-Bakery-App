@@ -16,16 +16,9 @@ const SalesStock = ({ loggedInUsername }) => {
     const fetchStocks = async () => {
       try {
         const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks?username=${loggedInUsername}`);
-
-        let stocksData = response.data;
-        if (!Array.isArray(stocksData)) {
-          stocksData = stocksData.results || [];
-        }
-
         // Sort stocks by stock_date in descending order
-        const sortedStocks = stocksData.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
+        const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
         setStocks(sortedStocks);
-
       } catch (error) {
         console.error('Error fetching stocks:', error);
       }
