@@ -23,8 +23,9 @@ const SalesStock = ({ loggedInUsername }) => {
         }
 
         // Sort stocks by stock_date in descending order
-        const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
+        const sortedStocks = stocksData.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
         setStocks(sortedStocks);
+
       } catch (error) {
         console.error('Error fetching stocks:', error);
       }
