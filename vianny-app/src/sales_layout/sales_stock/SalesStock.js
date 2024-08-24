@@ -115,8 +115,9 @@ const SalesStock = ({ loggedInUsername }) => {
                 <td>{stock.quantity_obtained}</td>
                 <td>{stock.stock_amount}</td>
                 <td>
-                  <button onClick={() => handleEdit(stock)}>Update</button>
+                  <button onClick={() => handleEdit(stock)}>Edit</button>
                   <button onClick={() => handleView(stock)}>View</button>
+                  <button onClick={() => handleDelete(stock.id)}>Delete</button>
                 </td>
               </tr>
             ))}
