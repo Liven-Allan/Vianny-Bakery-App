@@ -45,7 +45,7 @@ const AdminSalesReport = () => {
         const salesData = salesResponse.data;
 
         // Fetch stock transaction data
-        const stockResponse = await axios.get('https://vianny-bakery-app.onrender.comapi/salesstocktransactions/');
+        const stockResponse = await axios.get('https://vianny-bakery-app.onrender.com/api/salesstocktransactions/');
         const stockData = stockResponse.data;
 
         // Extract unique dates from sales and stock data
