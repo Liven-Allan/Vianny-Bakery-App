@@ -125,7 +125,7 @@ const SalesStock = ({ loggedInUsername }) => {
                 <td>
                   <button onClick={() => handleEdit(stock)}>Edit</button>
                   <button onClick={() => handleView(stock)}>View</button>
-                  <button onClick={() => handleDelete(stock.id)}>Delete</button>
+
                 </td>
               </tr>
             ))}
