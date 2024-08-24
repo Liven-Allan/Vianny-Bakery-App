@@ -7,6 +7,7 @@ import AddEditStock from './AddEditStock';
 
 const SalesStock = ({ loggedInUsername }) => {
   const [stocks, setStocks] = useState([]);
+  const [allStocks, setAllStocks] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false); // New state for view modal
   const [currentStock, setCurrentStock] = useState(null);
@@ -15,19 +16,25 @@ const SalesStock = ({ loggedInUsername }) => {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks?username=${loggedInUsername}`);
-        console.log('Data returned from backend:', response.data);
+        // Fetch all stocks
+        const response = await axios.get('https://vianny-bakery-app.onrender.com/api/salestocks/');
+        const stocksData = response.data;
 
-        // Sort stocks by stock_date in descending order
-        const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
-        setStocks(sortedStocks);
+        // Filter stocks based on the logged-in username
+        const filteredStocks = stocksData.filter(stock => stock.username === loggedInUsername);
+
+        // Set both all stocks and filtered stocks
+        setAllStocks(stocksData);
+        setStocks(filteredStocks);
+
+        console.log('Data returned from backend:', filteredStocks);
       } catch (error) {
         console.error('Error fetching stocks:', error);
       }
     };
 
     fetchStocks();
-  }, [refresh]);
+  }, [refresh, loggedInUsername]);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -87,7 +94,6 @@ const SalesStock = ({ loggedInUsername }) => {
                 </tr>
               </thead>
               <tbody>
-                {/* Check if product_id is an array or a single string */}
                 {(Array.isArray(currentStock?.product_id) ? currentStock.product_id : [currentStock?.product_id]).map((product, index) => (
                   <tr key={index}>
                     <td>{product}</td>

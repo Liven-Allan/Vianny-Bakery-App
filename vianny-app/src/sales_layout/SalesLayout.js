@@ -26,10 +26,8 @@ const SalesLayout = ({ handleLogout }) => {
         <h1>Sales Management</h1>
         <nav>
           <ul>
-           {/**<li><Link to="/sales-dashboard">Sales Dashboard</Link></li> */} 
             <li><Link to="/sales-stock">Sales Stock</Link></li>
             <li><Link to="/sales-list">Sales List</Link></li>
-           {/**<li><Link to="/sales-report">Sales Report</Link></li> */} 
           </ul>
         </nav>
         <button onClick={handleLogoutClick} className="logout-button">
