@@ -16,8 +16,12 @@ const SalesStock = ({ loggedInUsername }) => {
     const fetchStocks = async () => {
       try {
         const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks?username=${loggedInUsername}`);
+
+        // Check if response.data is an array
+        const data = Array.isArray(response.data) ? response.data : response.data.results || [];
+
         // Sort stocks by stock_date in descending order
-        const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
+        const sortedStocks = data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
         setStocks(sortedStocks);
       } catch (error) {
         console.error('Error fetching stocks:', error);
@@ -25,7 +29,7 @@ const SalesStock = ({ loggedInUsername }) => {
     };
 
     fetchStocks();
-  }, [refresh]);
+  }, [refresh, loggedInUsername]);
 
   const handleCloseModal = () => {
     setShowModal(false);
