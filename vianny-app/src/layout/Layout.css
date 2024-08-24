@@ -12,8 +12,8 @@
   position: sticky;
   top: 0; /* Stick to the top of the container */
   width: 250px;
-  background-color: purple;
-  color: #611ce2;
+  background-color: white;
+    color: purple;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   height: 100vh; /* Ensure sidebar covers full height */
@@ -49,7 +49,7 @@
 }
 
 .sidebar nav ul li a {
-  color: #611ce2;
+  color: purple;
   text-decoration: none;
   font-size: 18px;
 }
