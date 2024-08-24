@@ -16,6 +16,8 @@ const SalesStock = ({ loggedInUsername }) => {
     const fetchStocks = async () => {
       try {
         const response = await axios.get(`https://vianny-bakery-app.onrender.com/api/salestocks?username=${loggedInUsername}`);
+        console.log('Data returned from backend:', response.data);
+
         // Sort stocks by stock_date in descending order
         const sortedStocks = response.data.sort((a, b) => new Date(b.stock_date) - new Date(a.stock_date));
         setStocks(sortedStocks);
